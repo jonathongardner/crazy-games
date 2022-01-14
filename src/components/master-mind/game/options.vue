@@ -1,14 +1,14 @@
 <template>
   <div class='options'>
-    <opt v-for='(option, index) in options' :piece='option' :key='index' />
+    <code-peg v-for='(option, index) in options' :codePeg='option' :key='index' />
   </div>
 </template>
 
 <script>
-import Opt from './option.vue'
+import CodePeg from './code-peg.vue'
 export default {
   name: 'Options',
-  components: { Opt },
+  components: { CodePeg },
   props: {
     options: {
       type: Array,
@@ -22,6 +22,7 @@ export default {
 .options {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   //justify-content: space-between;
 }
 </style>
