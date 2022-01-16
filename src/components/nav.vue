@@ -15,11 +15,6 @@
         <i class="fas fa-question"></i>
       </span>
     </router-link>
-    <router-link v-if='hasReload' :to='{ name: parentRoute, params: { reload: true } }' class='nav-button is-pulled-right'>
-      <span class="icon has-text-white">
-        <i class="fas fa-redo"></i>
-      </span>
-    </router-link>
   </nav>
 </template>
 
@@ -38,9 +33,6 @@ export default {
     },
     aboutRoute () {
       return `${this.parentRoute}.about`
-    },
-    hasReload () {
-      return this.$route.meta.reload
     },
     hasSettings () {
       return this.$route.meta.settings

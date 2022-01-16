@@ -1,12 +1,14 @@
 <template>
   <my-modal @close='close'>
     <template v-slot:header>
-      <p class="modal-card-title">About MasterMind</p>
+      <p class="modal-card-title">Mastermind Settings</p>
     </template>
     <template v-slot:section>
       <my-input label='Number of Turns' name='numberOfRows' v-model:value='numberOfRows' :min='1' type='number'/>
       <my-input label='Number of Slots' name='numberOfSlots' v-model:value='numberOfSlots' :min='1' type='number'/>
       <peg-select v-model:options='options' />
+    </template>
+    <template v-slot:footer>
       <div class="field is-grouped">
         <div class="control">
           <button class="button is-success" :disabled='cantSave' @click='save'>Save</button>
@@ -73,7 +75,9 @@ export default {
         numberOfSlots: this.numberOfSlots,
         numberOfRows: this.numberOfRows
       })
-      this.$router.push({ name: 'master-mind', params: { reload: true } })
+      // param value needs to change to reload route so cant just use boolean
+      const reload = (new Date()).getTime()
+      this.$router.push({ name: 'master-mind', params: { reload } })
     },
     cancel () {
       if (this.someChanged) {

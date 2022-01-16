@@ -1,5 +1,5 @@
 <template>
-  <div :class="['round', editable ? 'editing' : '']">
+  <div class="round">
     <template v-for='(c, index) in turn.correct' :key='index'>
       <key-peg :value='c' />
     </template>
@@ -50,11 +50,6 @@ export default {
 .round {
   display: flex;
   padding: 5px;
-  border-radius: 50vh;
-  border-width: 2px;
-}
-.editing {
-  border-color: black;
-  border-style: solid;
+  justify-content: center;
 }
 </style>

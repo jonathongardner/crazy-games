@@ -1,20 +1,25 @@
 <template>
-  <div id='game'>
-    <options :options='options' />
-    <div id='decoding-board'>
-      <turn v-for='(turn, index) in turns' :key='index' :turn='turn' :editable='editable(index)' @submit='submit'/>
-      <div v-if='finished'>
-        <h1 class='title is-4 has-text-centered'>
-          {{ brokeTheCode ? 'You Broke the Code!' : 'Sorry, try again.' }}
-        </h1>
-        <div id='code'>
-          <template v-for='(peg, index) in code' :key='index'>
-            <code-peg :codePeg='peg' />
-          </template>
-        </div>
+  <div id='master-mind'>
+    <p class='title has-text-centered'>Mastermind!</p>
+    <div v-if='finished'>
+      <p class='subtitle has-text-centered'>
+        {{ brokeTheCode ? 'You Broke the Code!' : 'Sorry, try again.' }}
+      </p>
+      <div id='code'>
+        <template v-for='(peg, index) in code' :key='index'>
+          <code-peg :codePeg='peg' />
+        </template>
       </div>
-      <h1 class='title has-text-centered'>Mastermind!</h1>
     </div>
+    <div id='game'>
+      <options :options='options' />
+      <div id='decoding-board'>
+        <turn v-for='(turn, index) in turns' :key='index' :turn='turn' :editable='editable(index)' @submit='submit'/>
+      </div>
+    </div>
+    <button id='restart' @click='restart' class="button-link">
+      Restart
+    </button>
   </div>
 </template>
 
@@ -32,7 +37,7 @@ const defaultData = () => {
   const code = array(numberOfSlots, () => {
     return options[Math.floor(Math.random() * options.length)]
   })
-  console.log(code)
+  // console.log(code)
 
   const turns = array(numberOfRows, () => {
     return {
@@ -86,11 +91,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#master-mind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 #game {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 7px;
+  border-color: black;
+  border-style: solid;
 }
 #decoding-board {
   display: flex;
@@ -102,5 +117,9 @@ export default {
 #code {
   display: flex;
   justify-content: center;
+}
+#restart {
+  flex: 1;
+  align-self: flex-end;
 }
 </style>
