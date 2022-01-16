@@ -1,4 +1,4 @@
-export const loadMasterMind = () => {
+export const defaultMasterMind = () => {
   // defaults
   return {
     options: [
@@ -12,5 +12,22 @@ export const loadMasterMind = () => {
     numberOfRows: 8
   }
 }
-export const saveMasterMind = () => {
+export const loadMasterMind = () => {
+  // defaults
+  const toReturn = defaultMasterMind()
+  const jsonString = localStorage.getItem('master-mind')
+  if (jsonString) {
+    const savedOptions = JSON.parse(jsonString)
+    Object.keys(toReturn).forEach(k => {
+      if (savedOptions.hasOwnProperty(k)) {
+        toReturn[k] = savedOptions[k]
+      }
+    })
+  }
+  return toReturn
+}
+export const saveMasterMind = ({ options, numberOfRows, numberOfSlots }) => {
+  localStorage.setItem('master-mind',JSON.stringify({
+    options, numberOfRows, numberOfSlots
+  }))
 }

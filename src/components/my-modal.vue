@@ -4,6 +4,7 @@
     <div class="modal-card">
       <header class="modal-card-head">
         <slot name='header' />
+        <button @click='closeModal' class="delete" aria-label="close"></button>
       </header>
       <section class="modal-card-body has-text-black">
         <slot name='section' />
@@ -27,6 +28,7 @@ export default {
   },
   methods: {
     closeModal() {
+      this.$emit('close')
       this.$emit('update:show', false)
     },
   },

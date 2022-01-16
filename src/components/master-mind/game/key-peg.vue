@@ -1,5 +1,5 @@
 <template>
-  <figure class='sphere' :style='cssStyle' />
+  <figure class='sphere' :style='cssStyle' :title='title' />
 </template>
 
 <script>
@@ -14,6 +14,15 @@ export default {
     }
   },
   computed: {
+    title () {
+      if (this.value === 1) {
+         return 'Right peg color, wrong place'
+      }
+      if (this.value === 2) {
+         return 'Right peg color, right place'
+      }
+      return ''
+    },
     cssStyle () {
       let color = '#565656'
       if (this.value === 1) {

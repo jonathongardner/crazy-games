@@ -23,7 +23,7 @@ export default {
 //   -webkit-font-smoothing: antialiased;
 //   -moz-osx-font-smoothing: grayscale;
 //   text-align: center;
-  background-color: #9ebd9f;
+  background-color: #9dab9e;
   color: #dcdcdc;
   min-height: 100vh;
   display: flex;

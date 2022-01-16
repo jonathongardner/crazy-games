@@ -8,7 +8,7 @@
     </template>
     <button class="button is-rounded is-outlined" type='button' @click='submit' :disabled='!canSubmit'>
       <span class="icon is-small">
-        <i class="fas fa-check"></i>
+        <i v-if='editable' class="fas fa-check"></i>
       </span>
     </button>
   </div>
