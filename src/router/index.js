@@ -50,6 +50,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
+  base: process.env.VUE_APP_BASE_URL,
   routes
 })
 
