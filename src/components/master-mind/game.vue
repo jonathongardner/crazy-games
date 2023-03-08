@@ -95,6 +95,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  & > div {
+    margin: 5px;
+  }
 }
 #game {
   display: flex;

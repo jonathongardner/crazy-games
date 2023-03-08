@@ -33,14 +33,6 @@ export default {
   }
   #body {
     flex: 1;
-    // Center everything
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    & > div {
-      margin: 5px;
-    }
   }
   #footer {
     height: 50px;

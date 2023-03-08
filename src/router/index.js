@@ -3,6 +3,9 @@ import Home from '../views/Common/Home.vue'
 import MasterMind from '../views/MasterMind/MasterMind.vue'
 import MasterMindSettings from '../views/MasterMind/MasterMindSettings.vue'
 import MasterMindAbout from '../views/MasterMind/MasterMindAbout.vue'
+import ChooChoo from '../views/ChooChoo/ChooChoo.vue'
+import ChooChooSettings from '../views/ChooChoo/ChooChooSettings.vue'
+import ChooChooAbout from '../views/ChooChoo/ChooChooAbout.vue'
 import Error404 from '../views/Common/Error404.vue'
 
 const routes = [
@@ -30,6 +33,28 @@ const routes = [
         path: 'about',
         name: 'master-mind.about',
         component: MasterMindAbout
+      },
+    ]
+  },
+  {
+    path: '/choo-choo',
+    name: 'choo-choo',
+    component: ChooChoo,
+    meta: {
+      reload: true,
+      settings: true,
+      about: true
+    },
+    children: [
+      {
+        path: 'settings',
+        name: 'choo-choo.settings',
+        component: ChooChooSettings
+      },
+      {
+        path: 'about',
+        name: 'choo-choo.about',
+        component: ChooChooAbout
       },
     ]
   },
