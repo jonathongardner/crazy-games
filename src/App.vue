@@ -1,62 +1,55 @@
+<script setup lang="ts">
+import FooterBar from '@/components/FooterBar.vue'
+import NavBar from '@/components/NavBar.vue'
+import PwaPrompt from '@/components/PwaPrompt.vue'
+</script>
+
 <template>
   <div id="crazy-games">
-    <nav-bar id='nav' />
-    <router-view id='body' />
-    <footer-bar id='footer' />
+    <NavBar id="nav" />
+    <RouterView id="body" />
+    <FooterBar id="footer" />
+    <PwaPrompt />
   </div>
 </template>
 
-<script>
-import NavBar from '@/components/nav'
-import FooterBar from '@/components/footer'
-export default {
-  name: 'App',
-  components: {
-    NavBar, FooterBar
-  },
-}
-</script>
-
 <style lang="scss">
 #crazy-games {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-  background-color: #9dab9e;
-  color: #dcdcdc;
   min-height: 100vh;
   display: flex;
   flex-flow: column;
-  #nav {
-    height: 50px;
+  color: #dcdcdc;
+  background-color: #9dab9e;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  #nav,
+  #footer {
+    min-height: 50px;
   }
+
   #body {
     flex: 1;
-    // Center everything
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     & > div {
       margin: 5px;
     }
   }
-  #footer {
-    height: 50px;
-  }
 }
+
 body {
-  margin: 0px;
+  margin: 0;
 }
+
 .button-link {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
+  padding: 0 !important;
+  border: 0;
   color: #069;
+  background: none !important;
+  font-family: Arial, sans-serif;
   text-decoration: underline;
   cursor: pointer;
 }
