@@ -56,9 +56,9 @@ describe('shared components', () => {
     const emptyPeg = wrapper.findAll('figure[draggable="true"]').at(-1)!
     await emptyPeg.trigger('drop', { dataTransfer: { getData: () => '#000000' } })
     await wrapper.get('button[aria-label="Submit guess"]').trigger('click')
-    expect(wrapper.text()).toContain('You Broke the Code!')
+    expect(wrapper.text()).toContain('Code cracked!')
 
     await wrapper.get('#restart').trigger('click')
-    expect(wrapper.text()).not.toContain('You Broke the Code!')
+    expect(wrapper.text()).not.toContain('Code cracked!')
   })
 })

@@ -73,6 +73,10 @@ function updateValue(event: Event): void {
 </template>
 
 <style scoped>
+.field {
+  margin-bottom: 1.25rem;
+}
+
 .my-input {
   flex: 1;
 }

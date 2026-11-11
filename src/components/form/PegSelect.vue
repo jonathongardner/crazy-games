@@ -57,9 +57,22 @@ function update(index: number, event: Event): void {
 </template>
 
 <style scoped>
+.field {
+  margin-top: 1.5rem;
+}
+
+.control:last-of-type {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+}
+
 .color-input {
-  width: 100px;
-  padding: 2px;
-  margin: 5px;
+  width: 100%;
+  height: 3.1rem;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
 }
 </style>

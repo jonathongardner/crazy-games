@@ -6,8 +6,11 @@ const props = withDefaults(defineProps<{ codePeg: string; editable?: boolean }>(
 })
 const emit = defineEmits<{ 'update:codePeg': [value: string] }>()
 const cssStyle = computed(() => {
-  const color = props.codePeg || '#565656'
-  return { background: `radial-gradient(circle at 10px 10px, ${color}, #000)` }
+  const color = props.codePeg || '#33405a'
+  return {
+    '--peg-color': color,
+    background: `radial-gradient(circle at 32% 28%, color-mix(in srgb, ${color}, white 36%), ${color} 45%, color-mix(in srgb, ${color}, black 55%))`,
+  }
 })
 
 function drop(event: DragEvent): void {
@@ -43,10 +46,22 @@ function dragEnd(): void {
 
 <style scoped>
 .sphere {
-  width: 30px;
-  height: 30px;
-  margin: 5px;
+  width: clamp(1.75rem, 5vw, 2.35rem);
+  height: clamp(1.75rem, 5vw, 2.35rem);
+  margin: 0.24rem;
+  border: 2px solid rgb(255 255 255 / 13%);
   border-radius: 50%;
-  transform: translate(0, 0);
+  box-shadow: inset -0.3rem -0.4rem 0.7rem rgb(0 0 0 / 32%), 0 0.3rem 0.65rem rgb(0 0 0 / 30%);
+  cursor: grab;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.sphere:hover[draggable="true"] {
+  box-shadow: inset -0.3rem -0.4rem 0.7rem rgb(0 0 0 / 24%), 0 0.55rem 1rem rgb(0 0 0 / 34%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.sphere:active {
+  cursor: grabbing;
 }
 </style>

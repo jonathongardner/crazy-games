@@ -28,8 +28,12 @@ function dismiss(): void {
   bottom: 1rem;
   z-index: 50;
   max-width: 22rem;
-  color: #2c3e50;
-  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 25%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  color: white;
+  background: rgb(21 29 53 / 94%);
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 38%);
+  backdrop-filter: blur(18px);
 }
 
 .buttons {

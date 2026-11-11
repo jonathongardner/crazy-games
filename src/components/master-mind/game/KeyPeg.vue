@@ -10,7 +10,7 @@ const title = computed(() => {
   return ''
 })
 const cssStyle = computed(() => {
-  const color = props.value === 1 ? 'red' : props.value === 2 ? 'white' : '#565656'
+  const color = props.value === 1 ? '#fb7185' : props.value === 2 ? '#ffffff' : '#303b54'
   return { background: `radial-gradient(circle at 5px 5px, ${color}, #000)` }
 })
 </script>
@@ -21,10 +21,11 @@ const cssStyle = computed(() => {
 
 <style scoped>
 .sphere {
-  width: 16px;
-  height: 16px;
-  margin: 12px 5px;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin: 0.18rem;
+  border: 1px solid rgb(255 255 255 / 14%);
   border-radius: 50%;
-  transform: translate(0, 0);
+  box-shadow: 0 0.2rem 0.4rem rgb(0 0 0 / 35%);
 }
 </style>
